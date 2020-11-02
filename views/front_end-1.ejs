@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta  charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+	*{
+	box-sizing:border-box;
+	}
+	body{
+	font-family:arial;
+	}
+	
+	/*Style the header*/
+	
+	header{
+		background-color:#666;
+		padding:30px;
+		text-align:center;
+		font-size:35px;
+		color:white;
+	}
+	
+	article{
+		float:center;
+		padding:30px;
+		width:50%
+		height:300px; /* only for demonstration, should be removed */
+		background-color:#f1f1f1;
+		border-radius: 20px;
+	}
+	</style>
+</head>
+<body>
+	<% if(message){ %>
+		<h1><%= message %></h1>
+	<% } %>
+	<header>
+		<h2>DAVS BED-AVAILABILITY SYSTEM</h2>
+		<i>Your guide for complete hospital-bed booking process!</i>
+	</header>
+	<br> <br> <br> <br>
+	<article>
+		<h1>Login</h1>
+		<form action="/login" method="post">
+			<fieldset>
+			<label for="name" ><b>Patient ID:</b><br><i>(First 3 alphabets of your first name with your birth date and month)</i></label><br>
+			<input type="text" id="name" name="name" placeholder="davs1309" required autofocus><br><br>
+			<label  for="password"><b>Password:</b></label><br>
+			<input type="password" id="password" name="password" required autofocus><br><br>
+			<input type="submit" value="Submit">
+			<input type="reset" value="Reset">
+		</form>
+	</article>
+	<br/>
+	<article>
+		<h1>Register</h1>
+		<form action="/register" method="post">
+			<fieldset>
+				<b><label for="fname">first name: </label></b><br>
+				<input name="fname" placeholder="first name" type="text"/><br><br>
+				<b><label for="lname">last name: </label></b><br>
+				<input name="lname" placeholder="last name" type="text"/><br><br>
+				<b><label for="phone">contact info: </label></b><br>
+				<input id="phone" name="phone" placeholder="contact number"><br><br>
+				<b><label for="complaint">Disease/Complaint: </label></b><br>
+				<input name="complaint" placeholder="disease" type="text"/><br><br>
+				<b><label for="address">Address: </label></b><br>
+				<input name="address" placeholder="address" type="text" /><br><br>
+				<b><label for="address">Set password: </label></b><br>
+				<input name="password" type="password" /><br><br>
+				<button>submit</button>
+			</fieldset>
+		</form>
+	</article>
+</body>
+</html>

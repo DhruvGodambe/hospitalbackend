@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Beds</title>
+    <link rel="stylesheet" type="style/css" href="./home.css">
+    <style>
+        .top-container {
+            width: 80%;
+            margin: 20px auto;
+            padding: 20px;
+            border-radius: 20px;
+            background: red;
+        }
+
+        .nav {
+            width: 80%;
+            margin: 20px auto;
+            display: flex;
+            flex-direction: row;
+        }
+
+        .option {
+            width: 30%;
+            margin: 5%;
+        }
+
+        .option button {
+            border: none;
+            border-radius: 20px;
+            padding: 30px;
+            background: darkgray;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-container">
+        <h1>Hospital Bed Availability</h1>
+    </div>
+    <div class="nav">
+        <div class="option">
+            <form action="/list" method="GET">
+                <button>List of Beds</button>
+            </form>
+        </div>
+        <div class="option">
+            <form action="/login" method="GET">
+                <button>Login/Register</button>
+            </form>
+        </div>
+        <div class="option">
+            <form action="/appointment" method="GET">
+                <button>Book Doctor Appointments</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

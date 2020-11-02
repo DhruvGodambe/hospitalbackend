@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta  charset="utf-8">
+	<meta  name="viewport"  content="width=device-width","initial-scale=1">
+<style>
+	*{
+	box-sizing:border-box;
+	}
+	body{
+	font-family:arial;
+	}
+	
+	/*Style the header*/
+	
+	header{
+		background-color:#666;
+		padding:30px;
+		text-align:center;
+		font-size:35px;
+		color:white;
+	}
+	
+	/*Creates two columns that floats next to each other*/
+	
+	nav{
+		float:left;
+		width:30%;
+		height:300px; /* only for demonstration, should be removed */
+		background:#black;
+		padding:30px;
+		
+	}
+	nav ul{
+	list-style-type:none;
+	padding:0;
+	}
+	
+	
+	article{
+		float:right;
+		padding:30px;
+		width:70%
+		height:300px; /* only for demonstration, should be removed */
+		background-color:#f1f1f1;
+	}
+	
+	/*Clear floats after the columns*/
+	
+	section:after{
+		content:"";
+		display:table;
+		clear:both;
+	}
+	
+	footer{
+		background-color:white;
+		padding:30px;
+		text-align:center;
+		font-size:35px;
+		color:black;
+	}
+	
+	table{
+		font-family:arial;
+		width:25%;
+	
+		}
+	
+	td{
+		border:1px solid #dddddd;
+		text-align:center;
+		padding:15px;
+		}
+	th{
+		
+		border:1px solid #dddddd;
+		text-align:center;font-Family:arial black;
+		text-align:center;
+		}
+	
+	tr:nth-child(even){
+	background-color:rgba(100,100,100,0.2);
+	
+	
+</style>
+</head>
+<body>
+	<% if(message){ %>
+		<h1><%= message %></h1>
+	<% } %>
+	<header>
+		<h2>DAVS BED-AVAILABILITY SYSTEM</h2>
+		<i>Your guide for complete hospital-bed booking process!</i>
+	</header>
+	
+	<section>
+		
+		<nav>
+			<p><b>SEARCH HOSPITALS IN:</b></p>
+			<ul>
+				<li> <a href="#">Dombivli (East)</a></li><br>
+				<li> <a href="#">Dombivli (West)</a></li><br>
+				<li> <a href="#">Kalyan (East)</a></li><br>
+				<li> <a href="#"> Kalyan(West)</a></li><br>
+			</ul>
+		</nav>
+		
+		<article>
+			<h2 style="font-family:arial-black;text-align:center;"><strong><mark>LIST OF HOSPITALS UNDER KALYAN-DOMBIVLI MUNICIPAL CORPORATION</mark></strong></h2> 
+	<table align="right">
+		<tr>
+			<th>Sr.No</th>
+			<th>Name of the Hospital </th>
+			<th>Address</th>
+			<th>Hospital Incharge</th>
+			<th>Contact No.</th>
+			<th>Total Beds</th>
+			<th>ICU Beds</th>
+			<th>Available Ventilators</th>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td>HolyCross Hospital </td>
+			<td>Karnik Road,Kalyan(West)</td>
+			<td>Dr.Pradnya Tikhe</td>
+			<td>0251-2328630</td>
+			<td>70</td>
+			<td>7</td>
+			<td>6</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td>R.R.Hospital and Medical Research Center </td>
+			<td>Milap Nagar,Dombivli(East)</td>
+			<td>Dr.Aamir Qureshi</td>
+			<td>9323206062</td>
+			<td>57</td>
+			<td>11</td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td>Sai Aarogyam Multi-Speciality Hospital </td>
+			<td>Durgadi Naka,Kalyan(West)</td>
+			<td>Dr.Sachin Yadav</td>
+			<td>8691006291</td>
+			<td>25</td>
+			<td>7</td>
+			<td>5</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td>Neon Hospital </td>
+			<td>Padle Gaon,Kalyan-Shil Road,<br>Dombivli(East)</td>
+			<td>Mr.Milind Shinde</td>
+			<td>9152000110</td>
+			<td>28</td>
+			<td>6</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td>Sai Hospital </td>
+			<td>2nd,3rd,4td Floor,serve 66<br>Vaibhav Nagari,Katai,Dombivli(East)</td>
+			<td>Dr.Sushil Zope</td>
+			<td>8448444250</td>
+			<td>40</td>
+			<td>7</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td>Shastri Nagar General Hospital </td>
+			<td>Kopar Road,Shastri Nagar, Dombivli(West)</td>
+			<td>Dr.Suhasini Bedekar</td>
+			<td>0251-2481073</td>
+			<td>50</td>
+			<td>6</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td>Opti-Life Multi-Speciality Hospital </td>
+			<td>Phoenix Arcade Bldg S.no 15<br>Shivaji Udyog Nagar,Opp.Vegaas Police Station,Manpada Road,Dombivli(East)<br></td>
+			<td>Dr.Sudarshan Patil</td>
+			<td>9619187198</td>
+			<td>27</td>
+			<td>7</td>
+			<td>4</td>
+		</tr>
+			<td>8</td>
+			<td>Siddhivinayak Multi-Speciality Hospital</td>
+			<td>Brahman Society,Pournima Talkies,<br>Murbad Road,Kalyan(West)</td>
+			<td>Dr.Shashank Fanade<br>Dr.Nilesh</td>
+			<td>932163657</td>
+			<td>25</td>
+			<td>9</td>
+			<td>3</td>
+		</tr>
+			<td>9</td>
+			<td>Shwas Multi-Speciality Hospital </td>
+			<td>Wayle Nagar,Opp. Mumbai University<br> Kalyan(West)</td>
+			<td>Dr.Prashant Dhage</td>
+			<td>8805566238</td>
+			<td>50</td>
+			<td>10</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td>A and G Hospital </td>
+			<td>Suchak House,Mouje Chikenghar,<br>Murbad Road.Karnik Road,<br>Kalyan(West)</td>
+			<td>Dr.Ganesh Pawar <br> Dr.Amit Garg</td>
+			<td>8422016555/<br>8268144416</td>
+			<td>35</td>
+			<td>14</td>
+			<td>4</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td>Mira Hospital </td>
+			<td>Dr.Ambedkar roada,behind Zhozwala Petroleum,<br>Bailbazaar,Kalyan(West)</td>
+			<td>Dr.Gautam Gunveer<br>Dr.Rehnuma</td>
+			<td>0251-23311117<br>0251-2311118</td>
+			<td>30</td>
+			<td>6</td>
+			<td>8</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td>Star City Multi-Speciality<br>HospitalPvt.Ltd</td>
+			<td>Gopal Crossroad,Chakki Naka,<br>Kalyan(East)</td>
+			<td>Mr.Gopal Potdar</td>
+			<td>8422999852/57/50<br>9970149063</td>
+			<td>45</td>
+			<td>11</td>
+			<td>2</td>
+		</tr>
+		/* <tr>
+			<td>13</td>
+			<td>Shri Swami Samarth Multi-Speciality<br>Hospital </td>
+			<td>Gopal Bhavan,near Swami Samarth Temple,<br>opp.Vrindavan Hotel,<br>Dombivli(East)</td>
+			<td>Mr.Govind Gawade</td>
+			<td>8828988971</td>
+			<td>20</td>
+			<td>8</td>
+			<td>2</td>
+		</tr> */
+		<tr>
+			<td>14</td>
+			<td>Aayush Hospital </td>
+			<td>Khadakpada,Radhanagar,Kalyan(West)</td>
+			<td>Mr.Hemant Rumde</td>
+			<td>0251-2231160</td>
+			<td>20</td>
+			<td>6</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>15</td>
+			<td>Nahar Multi-Speciality Hospital </td>
+			<td>Kalyan-Shil Road,near Vyankatesh Petrol Pump,<br>Dombivli(West)</td>
+			<td>Dr.Kunal Gaykar</td>
+			<td>8691888890</td>
+			<td>30</td>
+			<td>8</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>16</td>
+			<td>Oxylium Hospital</td>
+			<td>Vinayak Apartment,opp Relax Hotel<br>Adivli-Dhokli,<br>Kalyan(East)</td>
+			<td>Mr.Amit Sahu</td>
+			<td>9561857302/9892755145</td>
+			<td>90</td>
+			<td>15</td>
+			<td>2</td>
+		</tr>
+		<tr>
+			<td>17</td>
+			<td>Oxylife Hospital Nx </td>
+			<td>Sai Paradise,First Floor,<br>Gupte Road,Vishnu Nagar,<br>Dombivli(West)</td>
+			<td>Dr.Mangesh<br>Dr.Sudarshan Patil</td>
+			<td>9833031090<br>9619187198</td>
+			<td>20</td>
+			<td>6</td>
+			<td>2</td>
+		</tr>
+	</table>
+		</article>
+		
+	</section>
+	
+	<footer> Footer</footer>
+</body>
+</html>
+
+	

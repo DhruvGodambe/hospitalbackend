@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Complaint</th>
+            <th>Address</th>
+            <th>Booking</th>
+        </tr>
+        <% list.forEach(val => { %>
+            <tr>
+                <td><%= val.id %></td>
+                <td><%= val.name %></td>
+                <td><%= val.phone %></td>
+                <td><%= val.complaint %></td>
+                <td><%= val.address %></td>
+                <td><button onclick="book(<%=val%>)">Book</button></td>
+            </tr>
+        <% }) %>
+    </table>
+    <script>
+        var bookingData;
+        function book(data) {
+            bookingData = data;
+        }
+    </script>
+</body>
+</html>
