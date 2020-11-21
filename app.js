@@ -4,13 +4,21 @@ var mysql = require("mysql")
 var bodyParser = require("body-parser")
 var session = require("express-session")
 var flash = require("express-flash");
-const e = require("express");
+var MySQLStore = require('express-mysql-session')(session);
+
+var options = {
+	host: 'localhost',
+	user: 'root',
+	password: 'Godambe@66',
+	database: 'Hospital'
+}
+var sessionStore = new MySQLStore(options);
 
 var conn = mysql.createPool({
-    host: "localhost",
-    user: "root",
-    password: "Godambe@66",
-    database: "Hospital"
+    host: "us-cdbr-east-02.cleardb.com",
+    user: "b5b859b5b989ce",
+    password: "5c9fa3aa",
+    database: "heroku_6e01da75dfdc3b9"
 })
 // var sqlQuery = 'create table bed(id INT(3) AUTO_INCREMENT PRIMARY KEY, type VARCHAR(100), ventilator BOOLEAN)'
 // var sqlQuery = 'create table patient(id INT(3) AUTO_INCREMENT PRIMARY KEY, name VARCHAR(100), complaint VARCHAR(100), phone VARCHAR(12), address VARCHAR(200))'
@@ -18,6 +26,7 @@ var conn = mysql.createPool({
 app.use(bodyParser.urlencoded({extended: true}))
 app.set('view engine', 'ejs')
 app.use(session({
+    store: sessionStore,
     secret: "use of mysql javascript html and css",
     resave: false,
     saveUninitialized: false
@@ -29,12 +38,19 @@ app.get("/", function(req, res){
 })
 
 app.get("/list", function(req, res){
-    if(req.session.loggedIn){
-        res.render('front_end-2.ejs', {message: req.flash("list")})
-    } else {
-        req.flash('login', 'please login or register first')
-        res.redirect("/login")
-    }
+    conn.query("SELECT * FROM hospital", function(err, result){
+        if(err){
+            res.send(err)
+        } else {
+            console.log(result);
+            if(req.session.loggedIn){
+                res.render('front_end-2.ejs', {obj: { message: req.flash("list"), result }})
+            } else {
+                req.flash('login', 'please login or register first')
+                res.redirect("/login")
+            }
+        }
+    })
 })
 
 app.get("/login", function(req, res){
@@ -48,6 +64,7 @@ app.get("/login", function(req, res){
 
 app.post("/login", function(req, res){
     conn.query("SELECT * FROM patient", function(err, result){
+        console.log(result);
         if(err){
             console.log(err)
             res.send("ERROR OCCURED!!")
@@ -84,6 +101,28 @@ app.post("/register", function(req, res){
             req.session.user = result;
             req.session.loggedIn = true;
             res.redirect("/list")
+        }
+    })
+})
+
+app.post("/book", function(req, res){
+    req.session.hospital = req.body;
+    res.render("booking_details");
+})
+
+app.post("/booked", function(req, res){
+    var sql = `INSERT INTO bed(type,ventilator,patient_id,hospital_id) VALUES('${req.body.bed}', ${req.body.ventilator == 'true'}, ${req.session.user.id}, ${req.session.hospital.id})`
+    conn.query(sql, function(err, result){
+        if(err){
+            console.log(err)
+        } else {
+            conn.query(`UPDATE hospital SET beds=beds-1 WHERE id=${req.session.hospital.id}`, function(error, resp){
+                if(error){
+                    console.log(error)
+                } else {
+                    res.render("booked", {obj: {user: req.session.user, hospital: req.session.hospital}})
+                }
+            })
         }
     })
 })

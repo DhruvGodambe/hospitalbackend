@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Details</title>
+</head>
+<body>
+    <form action="/booked" method="POST">
+        <label>Bed Type</label>
+        <select name="bed" >
+            <option>normal</option>
+            <option>ICU</option>
+        </select>
+
+        <label>Ventilator required?</label>
+        <input type="radio" name="ventilator" value="true">true
+        <input type="radio" name="ventilator" value="false">false
+        <button>submit</button>
+    </form>
+</body>
+</html>
